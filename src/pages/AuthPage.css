@@ -1,0 +1,32 @@
+.auth-container{
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+.error {
+  color: red;
+  margin-top: 10px;
+}
+.toggle-btn{
+  margin-top: 15px;
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}

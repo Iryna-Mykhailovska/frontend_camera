@@ -1,0 +1,265 @@
+/* ==========================================================================
+   БЛОК СТРОГОГО ПОШУКУ КАМЕРИ
+   ========================================================================== */
+.search-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-section__label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+.search-section__input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.search-section__input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid #007bff;
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.search-section__input:focus {
+    border-color: #0056b3;
+}
+
+/* Кнопки */
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.search-section__button {
+    padding: 10px 25px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-section__button:hover {
+    background-color: #0056b3;
+}
+
+.search-clear {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-clear:hover {
+    background-color: #52575a;
+}
+
+/* ==========================================================================
+   РЕЗУЛЬТАТИ ПОШУКУ ТА КАРТКИ КАМЕР
+   ========================================================================== */
+.search-results {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f1f3f5;
+    border-radius: 6px;
+}
+
+.search-results__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.search-results__title {
+    margin: 0;
+    color: #333;
+}
+
+.search-results__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.camera-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #b2fba7ec;
+    padding: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.camera-card__preview {
+    height: 90px;
+    background-color: #222;
+    background-size: cover;
+    border-radius: 4px;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 11px;
+    transition: opacity 0.2s;
+    margin-bottom: 8px;
+}
+
+.camera-card__preview--clickable {
+    cursor: pointer;
+}
+
+.camera-card__preview--no-signal {
+    cursor: default;
+    background-color: #343a40;
+    color: #6c757d;
+}
+
+.camera-card__name {
+    font-weight: bold;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 4px;
+}
+
+.camera-card__ip {
+    font-size: 12px;
+    color: #007bff;
+    font-family: monospace;
+    margin-bottom: 6px;
+}
+
+.camera-card__sn {
+    font-size: 11px;
+    color: #6c757d;
+    font-family: monospace;
+    margin-top: 2px;
+}
+
+.camera-card__sn-acent {
+    color: #333;
+}
+
+.camera-card__additional-info {
+    border-top: 1px dashed #e9ecef;
+    padding-top: 6px;
+    font-size: 11px;
+    color: #6c757d;
+}
+
+.camera-card__additional-info__recorder {
+    margin-top: 2px;
+}
+
+.search-results__no-results {
+    color: #6c757d;
+    font-size: 14px;
+    margin: 5px 0 0 0;
+}
+
+/* ==========================================================================
+   ГЛОБАЛЬНА МОДАЛКА ПЕРЕГЛЯДУ КАРТИНКИ
+   ========================================================================== */
+.global-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: zoom-out;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.global-modal__image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==========================================================================
+   СТРУКТУРНА СІТКА ПАНЕЛЕЙ (DASHBOARD CONTENT) ТА АДАПТИВНІСТЬ
+   ========================================================================== */
+
+/* Десктопна версія: 3 колонки поруч */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 20px;
+    align-items: start;
+    transition: opacity 0.3s ease;
+}
+
+/* Стан блокування панелей при активному пошуку */
+.dashboard-content--dimmed {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* Планшетна версія (екран від 579px до 1024px) */
+@media (max-width: 1024px) {
+    .dashboard-content {
+        grid-template-columns: 1fr 1fr; /* Компанії та Реєстратори ділять ширину навпіл */
+    }
+    
+    /* Камери падають вниз і розгортаються на повну ширину під ними */
+    .dashboard-content .camera-panel {
+        grid-column: span 2;
+    }
+}
+
+/* Мобільна версія (екран <= 578px) */
+@media (max-width: 578px) {
+    .dashboard-content, 
+    .main-content-container { 
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        gap: 15px;
+        padding: 10px;
+    }
+}

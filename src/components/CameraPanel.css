@@ -1,0 +1,198 @@
+/* Панель */
+.camera-panel {
+  flex: 1.5;
+  background: #fac5fb;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+@media (max-width: 578px) {
+  .camera-panel {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex: none;
+    order: 3; /* стає в самий кінець списку */
+  }
+
+  /* Якщо реєстратор не обрано, ховаємо заглушку на мобілці */
+  .camera-panel:has(.camera-panel__subtitle), 
+  /* Або якщо у тебе старий синтаксис, просто орієнтуємося на клас заглушки: */
+  .camera-panel--empty { 
+    display: none !important;
+  }
+
+  /* Сама сітка карток камер на мобілці має стати в одну колонку */
+  .camera-panel__grid {
+    grid-template-columns: 1fr !important; 
+    gap: 12px;
+  }
+  
+  /* Робимо форму додавання камери компактнішою */
+  .camera-panel__form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.camera-panel__title {
+  margin-top: 0;
+  color: #333;
+}
+
+.camera-panel__subtitle {
+  color: #888;
+  font-size: 14px;
+}
+
+.camera-panel__regik {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.camera-panel__empty {
+  color: #888;
+  font-size: 14px;
+}
+
+/* Форма добавления */
+.camera-panel__form {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.camera-panel__add {
+  margin: 0 0 10px 0;
+}
+
+.camera-panel__form-row {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+/* Специфические модификаторы для инпутов и кнопок внутри панели */
+.camera-panel__form-row .form-group {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.form-control--short {
+  width: '90px' !important;
+}
+
+/* Сетка (Grid) */
+.camera-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* Карточка камеры */
+.camera-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #b2fba7ec;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.camera-card__preview {
+  height: 130px;
+  background-color: #222;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 12px;
+  transition: opacity 0.2s;
+  cursor: default;
+}
+
+.camera-card__preview--clickable {
+  cursor: pointer;
+}
+
+.camera-card__preview--clickable:hover {
+  opacity: 0.9;
+}
+
+.camera-card__body {
+  padding: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.camera-card__title {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.camera-card__ip {
+  font-size: 12px;
+  color: #bf1edf;
+  font-family: monospace;
+  margin-bottom: 2px;
+}
+
+.camera-card__sn {
+  font-size: 11px;
+  color: #6c757d;
+  font-family: monospace;
+}
+
+.camera-card__sn span {
+  color: #333;
+}
+
+.camera-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.camera-card__delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #dc3545;
+  font-size: 12px;
+  padding: 2px 5px;
+}
+
+/* Стилізація кастомного інпуту завантаження файлу */
+.camera-panel__file-wrapper {
+  width: 100%;
+}
+
+.camera-panel__file-label {
+  display: block;
+  padding: 8px 12px;
+  background: #f1f3f5;
+  border: 1px dashed #ced4da;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  color: #495057;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.camera-panel__file-label:hover {
+  background: #e9ecef;
+  border-color: #6c757d;
+  color: #212529;
+}
