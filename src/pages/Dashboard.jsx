@@ -102,7 +102,7 @@ const Dashboard = ({ userRole, onLogout }) => {
                         />
                         <FormButton
                             type="submit"
-                            className="search-section__button btn"
+                          className="search-section__submit-btn btn"
                         >
                             Пошук
                         </FormButton>

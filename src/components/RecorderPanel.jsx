@@ -117,7 +117,7 @@ const RecorderPanel = ({
           <FormInput placeholder="Назва (наприклад: NVR-Бухгалтерія)" value={recName} onChange={e => setRecName(e.target.value)} required />
           <FormInput placeholder="IP-адрес" value={recIp} onChange={e => setRecIp(e.target.value)} required />
           <FormInput type="number" placeholder="Кількість каналів" value={recChannels} onChange={e => setRecChannels(e.target.value)} required min="1" />
-          <FormButton type="submit" className="submit-btn submit-btn--green">Додати NVR</FormButton>
+          <FormButton type="submit" className="submit-btn btn">Додати NVR</FormButton>
         </form>
       )}
 

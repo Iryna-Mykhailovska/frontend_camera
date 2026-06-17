@@ -83,7 +83,7 @@ const CompanyPanel = ({
           <h5 className="company-panel__form-title">➕ Додати компанію</h5>
           <FormInput placeholder="Назва компанії" value={companyName} onChange={e => setCompanyName(e.target.value)} required />
           <FormInput placeholder="Адреса" value={companyAddress} onChange={e => setCompanyAddress(e.target.value)} />
-          <FormButton type="submit" className="company-panel__form-btn">Додати</FormButton>
+          <FormButton type="submit" className="company-panel__form-btn btn">Додати</FormButton>
         </form>
       )}
 

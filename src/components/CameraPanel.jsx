@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import API from '../services/api';
 import FormInput from './FormInput';   
 import FormButton from './FormButton'; 

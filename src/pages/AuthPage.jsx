@@ -32,11 +32,11 @@ const AuthPage = ({ onLoginSuccess }) => {
       } else {
         // Запрос на Регистрацию
         await API.post('/auth/register', { email, password, role });
-        alert('Регистрация успешна! Теперь войдите в систему.');
+        alert('Регістрація успішна! Тепер увійдіть в систему.');
         setIsLoginMode(true); // Переключаем на режим входа
       }
     } catch (err) {
-      setError(err.response?.data?.error || 'Произошла сетевая ошибка');
+      setError(err.response?.data?.error || 'Сталася мережева помилка');
     }
   };
 

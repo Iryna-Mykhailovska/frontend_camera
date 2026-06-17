@@ -35,38 +35,21 @@
 }
 
 /* Кнопки */
-.btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 25px;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
 
-.btn:hover {
-    background-color: #0056b3;
-}
+.search-section__submit-btn {
+        width: 15%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
 
-.search-section__button {
-    padding: 10px 25px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.search-section__button:hover {
-    background-color: #0056b3;
-}
-
+    .search-section__submit-btn:hover {
+        background-color: #0056b3;
+    }
 .search-clear {
     background-color: #6c757d;
     color: #fff;
@@ -218,8 +201,13 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* ==========================================================================
@@ -244,22 +232,37 @@
 /* Планшетна версія (екран від 579px до 1024px) */
 @media (max-width: 1024px) {
     .dashboard-content {
-        grid-template-columns: 1fr 1fr; /* Компанії та Реєстратори ділять ширину навпіл */
+        grid-template-columns: 1fr 1fr;
+        /* Компанії та Реєстратори ділять ширину навпіл */
     }
-    
+
     /* Камери падають вниз і розгортаються на повну ширину під ними */
     .dashboard-content .camera-panel {
         grid-column: span 2;
     }
+
+    
 }
+
 
 /* Мобільна версія (екран <= 578px) */
 @media (max-width: 578px) {
-    .dashboard-content, 
-    .main-content-container { 
+
+    .dashboard-content,
+    .main-content-container {
         display: flex !important;
         flex-direction: column-reverse !important;
         gap: 15px;
         padding: 10px;
     }
+
+    .search-section {
+        padding: 10px;
+    }
+
+    .search-section__input-group {
+        flex-direction: column;
+    }
+    .search-section__submit-btn {
+        width: 100%;}
 }
