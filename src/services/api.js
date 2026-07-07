@@ -1,9 +1,11 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5001', // Наш новый изолированный порт
+  // baseURL: 'http://localhost:5001', // Наш новый изолированный порт
+  baseURL: 'https://backend-cameras.onrender.com',
   withCredentials: true
 });
+
 
 // Автоматически добавляем JWT-токен к каждому запросу
 API.interceptors.request.use((config) => {
